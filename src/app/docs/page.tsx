@@ -70,7 +70,7 @@ export default function DocsOverview() {
                       <div className="flex items-center space-x-4">
                         <img
                           className="w-7 h-7 rounded-full"
-                          src={baseUrl + article.author.avatar[0].url}
+                          src={ article.author.avatar[0].url}
                           alt={`${article.author.name} avatar`}
                         />
                         <span className="font-medium text-[#181127]">{article.author.name}</span>

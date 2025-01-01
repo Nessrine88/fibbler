@@ -42,14 +42,14 @@ interface ElementData {
   authorName: string | null;
   TableOfContents: string[] | null;
   articles: Article[] | null;
-  data:[]
+  data: [];
 }
-
 
 const useFetch = (url: string) => {
   const [data, setData] = useState<ElementData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || ""; // Ensure baseUrl is always a string
+  const apiToken = process.env.NEXT_PUBLIC_API_TOKEN || ""; // Get the API token from environment variables
 
   useEffect(() => {
     const getData = async (): Promise<void> => {
@@ -60,10 +60,25 @@ const useFetch = (url: string) => {
           return;
         }
 
-        const response = await fetch(`${baseUrl}${url}`);
+        if (!apiToken) {
+          setError("API token is not defined");
+          console.error("API token is not defined");
+          return;
+        }
+
+        // Add the Authorization header with Bearer token
+        const response = await fetch(`${baseUrl}${url}`, {
+          method: "GET", // or "POST" based on your needs
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiToken}`, // Add Bearer token here
+          },
+        });
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const fetchedData = await response.json();
 
         console.log(fetchedData);
@@ -81,7 +96,7 @@ const useFetch = (url: string) => {
     };
 
     getData();
-  }, [url, baseUrl]);
+  }, [url, baseUrl, apiToken]);
 
   return { data, error, baseUrl };
 };
