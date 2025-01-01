@@ -232,11 +232,13 @@ p {
 /* Strong (Bold Text) */
 strong {
   font-weight: bold;
+  color: #181127;
 }
 
 /* Emphasis (Italic Text) */
 em {
   font-style: italic;
+  color: #181127;
 }
 
 /* Blockquotes */
@@ -271,23 +273,28 @@ code {
 @media (min-width: 640px) { /* 'sm:' prefix in Tailwind */
   h2 {
     font-size: 20px;
+    color: #181127;
   }
 }
 
 @media (min-width: 1024px) { /* 'lg:' prefix in Tailwind */
   p {
     font-size: 18px;
+    color: #181127;
   }
   ol {
     font-size: 18px;
+    color: #181127;
   }
 }
 
 @media (min-width: 1280px) { /* 'xl:' prefix in Tailwind */
   p {
     line-height: 28px;
+    color: #181127;
   }
   ol {
     line-height: 28px;
+    color: #181127;
   }
 }
