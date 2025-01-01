@@ -1,10 +1,6 @@
-"use client"
-import useFetch from "@/app/app/useFetch";
 import React from "react";
 
 export default function PlugAndWatch() {
-  const { data } = useFetch("/api/page1?populate=page1.image");
-   const imgUrl = "http://localhost:1337"
   return (
     <section
       id="plug-and-watch"
@@ -13,12 +9,15 @@ export default function PlugAndWatch() {
       <div className="container">
         <h1 className="text-center text-[#181127] md:text-[44px] text-[25px] leading-[127%] md:max-w-[733px] sm:max-w-[339px] max-w-[330px] mx-auto font-[600]">
           <span className="bg-[url('/assets/img/line-shape-2.svg')] bg-no-repeat bg-bottom bg-contain xl:pl-[15px]">
-           {data?.page1[1].title ?? " Plug in and watch your data"}
+            Plug in and watch your data
           </span>{" "}
-          {data?.page1[1].subtitle ?? "light up in under 30 seconds"}
+          light up in under 30 seconds
         </h1>
         <p className="text-center text-[#000] sm:text-[20px]  text-[16px] sm:leading-[150%] leading-[138%] font-[500] satoshifont-500 xl:mt-[23px] md:mt-[20px] mt-[17px]  md:mb-[71px] mb-[42px] max-w-full sm:max-w-[698px] mx-auto">
-          {data?.page1[1].description ?? "Fibbler allows you to see all companies that have viewed your ads, filter by specific campaigns, export all data into a CSV, view a timeline for each company, and match impressions with CRM data to uncover influenced pipeline and revenue."}
+          Fibbler allows you to see all companies that have viewed your ads,
+          filter by specific campaigns, export all data into a CSV, view a
+          timeline for each company, and match impressions with CRM data to
+          uncover influenced pipeline and revenue.
         </p>
 
         <div className="xl:pr-[32px] md:pr-[23px] pr-[16px]">
@@ -27,7 +26,7 @@ export default function PlugAndWatch() {
             <div className=" z-10 relative">
               <img
                 className="w-full  md:border-[5px] border-[4px] border-[#181127] rounded-[20px]"
-                src={data?.page1[1]?.image[0]?.url ? imgUrl + data.page1[1].image[0].url : "/assets/img/dashboard.png"}
+                src="/assets/img/dashboard.png"
                 alt="Picture of our dashboard"
               />
             </div>
