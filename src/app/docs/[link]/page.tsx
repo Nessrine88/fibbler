@@ -79,7 +79,7 @@ const PostPage = () => {
               <h2 className="text-[18px] sm:text-[20px] text-[#181127] tracking-[0.2px] leading-[109.7%] font-semibold mb-[15px]">
                 {currentArticle.blog.heading2 ?? "Overview"}
               </h2>
-              <p className="text-[#181127] text-[16px] lg:text-[18px] font-[500] satoshifont-500 xl:leading-[28px]">
+              <p className="text-[#181127] text-[16px] lg:text-[18px] font-[500] satoshifont-500 xl:leading-[28px] pl-5">
                 <ReactMarkdown>{currentArticle.blog.section1}</ReactMarkdown>
               </p>
             </section>
@@ -89,7 +89,7 @@ const PostPage = () => {
               <h3 id="company-insights" className="text-[18px] sm:text-[20px] text-[#181127] tracking-[0.2px] leading-[109.7%] font-semibold mb-[15px]">
                 {currentArticle.blog.heading3 ?? "Fibbler in-app Company Insights"}
               </h3>
-              <ReactMarkdown>{currentArticle.blog.section2}</ReactMarkdown>
+              <ReactMarkdown className="pl-5">{currentArticle.blog.section2}</ReactMarkdown>
               <div className="rounded-[16px] border-[4px] sm:border-[5px] border-[#181127] bg-[#fcfbfd] max-w-[899px] aspect-[2/1] mx-auto my-[30px] sm:my-[40px] lg:my-[81px]">
                 <img
                   src={`${currentArticle.blog.image1[0].url}` || "/assets/img/docs/insights_tech_docs.png"}
