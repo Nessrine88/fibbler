@@ -9,7 +9,6 @@ import ReactMarkdown from "react-markdown";
 import '../../globals.css';
 
 const PostPage = () => {
-  // Construct query for fetching data
   const query = qs.stringify(
     {
       populate: {
@@ -21,20 +20,16 @@ const PostPage = () => {
     { encodeValuesOnly: true }
   );
 
-  // Use the constructed query with useFetch
   const { data, error } = useFetch(`/api/docs?${query}`);
   
-  const { link } = useParams(); // Get the dynamic link parameter from the URL
+  const { link } = useParams();
 
-  // Handle loading and error states
   if (!data) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error}</p>;
 
-  // Find the current article based on the link
   const currentData = Array.isArray(data) ? data : [];
   const currentArticle = currentData?.find((article: any) => article?.link === link);
 
-  // If no matching article is found
   if (!currentArticle) {
     return <p className='text-white'>Article not found.</p>;
   }
@@ -50,7 +45,7 @@ const PostPage = () => {
 
             {/* Article Title */}
             <h1 className="text-[#181127] font-[600] text-[25px] lg:text-[44px] leading-[109.7%] tracking-[0.44px] text-center lg:max-w-[863px] max-w-[500px] mx-auto mb-[35px]">
-              {currentArticle?.blog.headline ?? "Technical Documentation for Fibbler"}
+              {currentArticle?.title ?? "Technical Documentation for Fibbler"}
             </h1>
 
             {/* Article Introduction */}
